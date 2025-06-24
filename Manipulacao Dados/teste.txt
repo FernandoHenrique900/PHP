@@ -1,0 +1,3 @@
+"É deu certo a leitura!"
+PHP é incrível!
+PHP é incrível!

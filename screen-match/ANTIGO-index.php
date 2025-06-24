@@ -1,21 +1,11 @@
 <?php
+//caminho absoluto para funcoes
 
-//Função que define se é ou não lançamento.
-function exibeMensagemLancemento(int $ano): void{
-    if ($ano > 2022) {
-        echo "Esse filme é um lançamento\n";
-    } elseif($ano > 2020 && $ano <= 2022) {
-        echo "Esse filme ainda é novo\n";
-    } else {
-    echo "Esse filme não é um lançamento\n";
-    }
-}
-//Função que define se esta incluso no plano.
-function incluidoNoPlano(bool $planoPrime, int $anoLancamento){
-    return $planoPrime || $anoLancamento < 2020;
-}
+//require ou include ??? verificar
+require __DIR__ . '/src/Modelo/Filme.php';
+require __DIR__ . "/src/funcoes.php";
 
-echo "Bem-vindo(a) ao screen match!\n";
+echo "Bem-vindo(a) ao Screen Match!\n";
 
 $nomeFilme = "Top Gun - Maverick";
 
@@ -48,35 +38,50 @@ $genero = match ($nomeFilme) {
 
 echo "O gênero do filme é: $genero\n";
 
-$filme = [
-    "nome" => "Thor: Ragnarok",
-    "ano" => 2021,
-    "nota" => 7.8,
-    "genero" => "super-herói",
-];
+$filme = criaFilme(
+    nome:"Thor:Ragnarok",
+    anoLancamento: 2021,
+    nota: 7.8, 
+    genero: "super-herói"
+);
 
-
-echo $filme["ano \n"];
+echo $filme->anoLancamento;
 
 //MANIPULAÇÃO DE ARRAYS
 
 //mostra valores dos arrays
+echo "Array puxado \n";
 var_dump($notas);
+
 //organiza array por valor
+
+echo "Array organizado \n";
 sort($notas);
 //mostra valores dos arrays organizado
 var_dump($notas);
-//funcão que mostra o menor numero do array
-$menorNota = min($notas);
-echo $menorNota;
 
-var_dump($filme ['nome']);
+
+//funcão que mostra o menor numero do array
+echo "Menor nota \n";
+$menorNota = min($notas);
+echo "$menorNota \n";
+
+var_dump($filme ->nome);
 
 //função busca 2 pontos ':'.
-$posicaoDoisPontos = strpos($filme['nome'],':');
+$posicaoDoisPontos = strpos($filme->nome,':');
 
 var_dump($posicaoDoisPontos);
 
-var_dump(substr($filme['nome'], 0, $posicaoDoisPontos ));
+var_dump(substr($filme->nome, 0, $posicaoDoisPontos ));
 
+//Encode p/JSON
+//echo json_encode($filme);
+
+//Decode p/JSON
+//var_dump(json_decode('{"nome":"Thor: Ragnarok","ano":2021,"nota":7.8,"genero":"super-her\u00f3i"}', true));
+
+//Transforma/Salva em um arquivo JSON local.
+$filmeComoStringJson = json_encode($filme);
+file_put_contents(__DIR__ . "/filme.json", $filmeComoStringJson);
 ?>
