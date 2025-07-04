@@ -1,3 +1,4 @@
+<!--PAGINA DE FORMULARIO DE CADASTRO CRUD -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +9,8 @@
   </head>
   <body>
     <?php include 'navbar.php'; ?>
-    <div class="container mt-5">
+    <div class="container mt-4">
+      <?php include('mensagem.php'); ?> <!--MENSAGEM DE RETORNO DA CRIAÇÃO DO USUARIO -->
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -18,32 +20,34 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                      <form action="" method="POST">
+                      <form action="acoes.php" method="POST">
                         <div class="mb-3">
                           <label>Nome</label>
                           <input type="text" name="nome" class="form-control">
                         </div>
                         <div class="mb-3">
-                          <label>E-mail</label>
+                          <label>Email</label>
                           <input type="text" name="email" class="form-control">
                         </div>
                         <div class="mb-3">
-                          <label>Data Nascimento</label>
-                          <input type="date" name="nome" class="form-control">
+                          <label>Data de Nascimento</label>
+                          <input type="date" name="data_nascimento" class="form-control">
                         </div>
                         <div class="mb-3">
                           <label>Senha</label>
-                          <input type="password" name="nome" class="form-control">
+                          <input type="password" name="senha" class="form-control">
+                        </div>  
                         <div class="mb-3">
                           <button type="submit" name="create_usuario" class="btn btn-primary">Salvar</button>
                         </div>
-                        </div> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+  </script>
   </body>
 </html>
