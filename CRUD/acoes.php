@@ -56,7 +56,7 @@ if (isset($_POST['update_usuario'])) {
     } else {
 
         //ERRO AO TENTAR ATUALIZAR NO BRANCO DE DADOS
-        
+
         $_SESSION['mensagem'] = 'Usuário não foi atualizado';
         header('Location: index.php');
         exit;
