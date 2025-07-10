@@ -31,19 +31,19 @@ if (isset($_POST['create_usuario'])) {
 
 if (isset($_POST['update_usuario'])) {
 
-    $usuario_id = mysqli_real_escape_string($conexao, $_POST[usuario_id]);
+    $usuario_id = mysqli_real_escape_string($conexao, $_POST['usuario_id']);
 
     $nome = mysqli_real_escape_string($conexao, trim($_POST['nome']));
     $email = mysqli_real_escape_string($conexao, trim($_POST['email']));
     $data_nascimento = mysqli_real_escape_string($conexao, trim($_POST['data_nascimento']));
-    $senha = mysqli_real_escape_string($conexao, trim($POST['senha']));
+    $senha = mysqli_real_escape_string($conexao, trim($_POST['senha']));
 
-    $sql = "UPDATE usuarios SET nome='$nome', email ='$email', data_nascimento = '$data_nascimento'";
+    $sql = "UPDATE usuarios SET nome= '$nome', email = '$email', data_nascimento = '$data_nascimento'";
 
     if (!empty($senha)) {
-        $sql .= ", senha='" . password_hash($senha, PASSWORD_DEFAULT) . "'";
+        $sql .= ", senha='" . password_hash($senha, PASSWORD_DEFAULT) . "'"; //.= (ponto igual) para a concatenar no PHP
     }
-    $sql .= "WHERE id = '$usuario_id'";
+    $sql .= " WHERE id = '$usuario_id'";
 
     mysqli_query($conexao, $sql);
 
@@ -54,7 +54,9 @@ if (isset($_POST['update_usuario'])) {
         header('Location: index.php');
         exit;
     } else {
+
         //ERRO AO TENTAR ATUALIZAR NO BRANCO DE DADOS
+        
         $_SESSION['mensagem'] = 'Usuário não foi atualizado';
         header('Location: index.php');
         exit;
