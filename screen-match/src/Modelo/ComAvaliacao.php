@@ -10,9 +10,9 @@ trait ComAvaliacao
     }
     public function media(): float
     {
-        $somaNotas = array_sum($this->notas);
-        $quantidadeNotas = count($this->notas);
+        $somaNotas = array_sum($this->notas);   //OBS-NÃO DA ERRO
+        $quantidadeNotas = count($this->notas); //OBS-NÃO DA ERRO
 
-        return $somaNotas / $quantidadeNotas;
+        return $somaNotas / $quantidadeNotas;   //OBS-ERRO NA DIVISÃO POR ZERO
     }
 }

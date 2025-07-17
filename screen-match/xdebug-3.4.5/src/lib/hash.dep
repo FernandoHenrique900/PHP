@@ -1,0 +1,4 @@
+src/lib/hash.lo: \
+  /Users/fernandohenrique/Documents/GitHub/Curso-PHP/screen-match/xdebug-3.4.5/src/lib/hash.c \
+  /Users/fernandohenrique/Documents/GitHub/Curso-PHP/screen-match/xdebug-3.4.5/src/lib/hash.h \
+  /Users/fernandohenrique/Documents/GitHub/Curso-PHP/screen-match/xdebug-3.4.5/src/lib/llist.h
