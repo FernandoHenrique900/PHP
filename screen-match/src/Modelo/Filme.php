@@ -11,6 +11,7 @@ class Filme extends Titulo
     //acesso aos metodos da classe base = titulo
     parent::__construct($nome, $anoLancamento, $genero);
     }
+    #[\Override]
     public function duracaoEmMinutos():int
     {
         return $this->duracaoEmMinutos;
