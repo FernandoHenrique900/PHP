@@ -3,7 +3,7 @@
     <ul class="list-group">
         @foreach($series as $serie)
             <li class = "list-group"> {{ $serie -> nome }} </li>
-            <!--'[]'= sinxtaxe de array, '->' sintaxe objeto -->
+            <!--'[]'= sinxtaxe de array, '->' sintaxe objeto .... -->
         @endforeach
     </ul>
 </x-layout>
