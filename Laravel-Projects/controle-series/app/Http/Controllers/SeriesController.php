@@ -26,6 +26,7 @@ class SeriesController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         $nomeSerie = $request->input('nome');
         $serie = new Serie();
         $serie->nome = $nomeSerie;
